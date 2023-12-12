@@ -1,6 +1,7 @@
 package com.arjuncode.Springbootlearn.controller;
 
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     // "8080/" will be execute this
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+
+    //@RequestMapping(value = "/",method = RequestMethod.GET)
+    //different types of reuqests will be there
+    // i.e., GET , POST, DELETE, OPTIONS
+    // so instead of @RequestMapping we can direcly use @GetMapping directly
+
+    @GetMapping("/")
     public String helloWorld(){
         return "WELCOME TO LEARN SPRING BOOT ARJUN!!!";
     }

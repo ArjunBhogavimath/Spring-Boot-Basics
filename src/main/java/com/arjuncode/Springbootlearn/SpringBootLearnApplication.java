@@ -11,3 +11,6 @@ public class SpringBootLearnApplication {
 	}
 
 }
+
+//mvn spring-boot:run
+// this is the command to run the project directly from the terminal
