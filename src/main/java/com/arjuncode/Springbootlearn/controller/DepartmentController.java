@@ -4,10 +4,7 @@ import com.arjuncode.Springbootlearn.entity.Department;
 import com.arjuncode.Springbootlearn.service.DepartmentService;
 import com.arjuncode.Springbootlearn.service.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,7 +23,14 @@ public class DepartmentController {
 
     //This is a get method
     @GetMapping("/departments")
+    //Here we need whole department list so we are returning list
     public List<Department> fetchDepartmentList(){
       return departmentService.fetchDepartmentList();
+    }
+
+    @GetMapping("/departments/{id}") //id is a path variable and  dynamic
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId){
+        //by declaring as @PathVariable annotation we are mapping id to departmentId
+         return departmentService.fetchDepartmentById(departmentId);
     }
 }
