@@ -33,4 +33,10 @@ public class DepartmentController {
         //by declaring as @PathVariable annotation we are mapping id to departmentId
          return departmentService.fetchDepartmentById(departmentId);
     }
+
+    @DeleteMapping("/departments/{id}")
+    public String deleteDepartmentById(@PathVariable("id") Long departmentId){
+        departmentService.deleteDepartmentById(departmentId);
+        return "Department deleted successfully!!!!";
+    }
 }
