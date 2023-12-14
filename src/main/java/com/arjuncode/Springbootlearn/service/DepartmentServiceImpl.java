@@ -1,12 +1,14 @@
 package com.arjuncode.Springbootlearn.service;
 
 import com.arjuncode.Springbootlearn.entity.Department;
+import com.arjuncode.Springbootlearn.error.DepartmentNotFoundException;
 import com.arjuncode.Springbootlearn.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service // this is service implementation
 public class DepartmentServiceImpl implements DepartmentService{
@@ -25,8 +27,16 @@ public class DepartmentServiceImpl implements DepartmentService{
     }
 
     @Override
-    public Department fetchDepartmentById(Long departmentId) {
-        return departmentRepository.findById(departmentId).get();
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+        Optional<Department> department = departmentRepository.findById(departmentId);
+
+        //now we can check if the department is present or not
+        if(!department.isPresent()){
+            throw new DepartmentNotFoundException("Department Not Available");
+        }
+        return department.get();
+
+        //return departmentRepository.findById(departmentId).get();
         //the entire findbyId will return optional
         //so to get the particular value we need to use.get
     }

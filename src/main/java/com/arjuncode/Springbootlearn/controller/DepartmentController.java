@@ -1,6 +1,7 @@
 package com.arjuncode.Springbootlearn.controller;
 
 import com.arjuncode.Springbootlearn.entity.Department;
+import com.arjuncode.Springbootlearn.error.DepartmentNotFoundException;
 import com.arjuncode.Springbootlearn.service.DepartmentService;
 import com.arjuncode.Springbootlearn.service.DepartmentServiceImpl;
 import jakarta.validation.Valid;
@@ -39,7 +40,7 @@ public class DepartmentController {
     }
 
     @GetMapping("/departments/{id}") //id is a path variable and  dynamic
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId){
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         log.info("Inside DepartmentController get by ID method!!!!!!!!!!!!!!!");
 
         //by declaring as @PathVariable annotation we are mapping id to departmentId
