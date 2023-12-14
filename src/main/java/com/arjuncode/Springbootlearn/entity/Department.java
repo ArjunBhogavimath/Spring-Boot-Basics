@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Department {
@@ -11,6 +13,20 @@ public class Department {
     @Id //TO MAKE departmentId AS PRIMARY KEY @Id added
     @GeneratedValue(strategy = GenerationType.AUTO) // this is how to generate primary key
     private Long departmentId;
+
+    @NotBlank(message = "Please Add Department Name")
+    /*@Length(max = 5,min = 1)
+    @Size(max = 10, min = 0)
+    @Email //we can add regex
+    @Positive
+    @Negative
+    @PositiveOrZero
+    @NegativeOrZero
+    @Future
+    @FutureOrPresent
+    @Past
+    @PastOrPresent*/
+    //all of this are differnt validations we can utilize
     private String departmentName;
     private String departmentAddress;
     private String departmentCode;
