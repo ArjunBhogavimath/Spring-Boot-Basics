@@ -5,9 +5,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
+@Data //IT WILL HAVE ALL THE GETTER SETTER HASH EVERYTHING @GETTER @SETTER WILL PRESNT WITH THIS ANNOTATION
+@NoArgsConstructor //Default CONSTRUCTOR
+@AllArgsConstructor //Paramterized contrsutor
+@Builder //entire builder pattern will be implemented
 public class Department {
 
     @Id //TO MAKE departmentId AS PRIMARY KEY @Id added
@@ -31,6 +39,9 @@ public class Department {
     private String departmentAddress;
     private String departmentCode;
 
+
+    /* WILL REMOVE THIS BECAUSE WE CAN ACHIEVE THIS BY DIRECTLY USING LOMBOK ANNOTATION
+     ALL THESE ARE BOILERPLATE CODES , SO WE DONT NEED TO ADD THIS
     public Long getDepartmentId() {
         return departmentId;
     }
@@ -84,6 +95,8 @@ public class Department {
                 ", departmentCode='" + departmentCode + '\'' +
                 '}';
     }
+
+     */
 }
 
 
