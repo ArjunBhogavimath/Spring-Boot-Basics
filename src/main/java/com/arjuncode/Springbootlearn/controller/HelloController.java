@@ -1,6 +1,7 @@
 package com.arjuncode.Springbootlearn.controller;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 */
 public class HelloController {
 
+    @Value("${welcome.message}") //this value will be fetched from application.properties and add it here
+    private String welcomeMessage;
+
     // "8080/" will be execute this
 
     //@RequestMapping(value = "/",method = RequestMethod.GET)
@@ -24,6 +28,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String helloWorld(){
-        return "WELCOME TO LEARN SPRING BOOT ARJUN!!! new changing hehe!!1";
+        return welcomeMessage;
     }
 }
