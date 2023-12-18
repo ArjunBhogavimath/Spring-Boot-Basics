@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,8 +44,8 @@ public class DepartmentServiceTest {
     //to do that at first we need to autowire that class
     @Test //we need to annotate the method with test so we can use this as a test function
    @DisplayName("get Data Based on valid department name")
-   @Disabled //this is used for disabling particualr test case
-   public void whenValidDeptName_DeptShouldFound(){
+   //@Disabled //this is used for disabling particualr test case
+   public void whenValidDepartmentName_thenDepartmentShouldFound(){ //the naming of the method should be standard please read spring doc
         String departmentName = "AI";
         Department found = departmentService.fetchDepartmentByName(departmentName);
 
