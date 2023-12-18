@@ -12,10 +12,12 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Data //IT WILL HAVE ALL THE GETTER SETTER HASH EVERYTHING @GETTER @SETTER WILL PRESNT WITH THIS ANNOTATION
+@Data //IT WILL HAVE ALL THE GETTER SETTER HASH EVERYTHING @GETTER @SETTER WILL PRESeNT WITH THIS ANNOTATION
 @NoArgsConstructor //Default CONSTRUCTOR
 @AllArgsConstructor //Paramterized contrsutor
-@Builder //entire builder pattern will be implemented
+@Builder //entire builder pattern will be implemented //Builder used because when the object has more properties but we
+// need to add only data for some properties then we need this.
+//otherwise we need to pass data for all the available properties or create multiple constructors
 public class Department {
 
     @Id //TO MAKE departmentId AS PRIMARY KEY @Id added
