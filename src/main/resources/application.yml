@@ -1,0 +1,78 @@
+
+#the yaml file gives us the human-readable code
+#and we have many advantage as well with that
+#we can convert our application.propeties file to yaml file
+#there are lot of extensions and online websites to convert that
+#IN YAML the indentation is strictly followed
+
+server:
+  port: '8082'
+
+spring:
+  profiles:
+    active: qa
+
+--- #this is how to crete seperate documents the above 1 is 1 document and the below is another doc.
+spring:
+  config:
+    activate:
+      on-profile: dev
+  #profile is created to maintain seperate env's for dev qa prod etc
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/arjunapp
+    password: arjunroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+hibernate:
+  transaction:
+    jta:
+      platform: com.atomikos.icatch.jta.hibernate4.AtomikosPlatform
+welcome:
+  message: 'Welcome!!!! Arjun '
+
+---
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/arjunapp-qa
+    password: arjunroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+hibernate:
+  transaction:
+    jta:
+      platform: com.atomikos.icatch.jta.hibernate4.AtomikosPlatform
+welcome:
+  message: 'Welcome!!!! Arjun '
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/arjunapp-prod
+    password: arjunroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+hibernate:
+  transaction:
+    jta:
+      platform: com.atomikos.icatch.jta.hibernate4.AtomikosPlatform
+welcome:
+  message: 'Welcome!!!! Arjun '
+
