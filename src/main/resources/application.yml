@@ -59,8 +59,10 @@ management:
     web:
       exposure:
         include: "*"
+        exclude: "env,beans"
 #this is the actuator dependency
-#by doing this it will enable all the functions
+#by adding include this it will enable all the functions
+#by adding exclude those endpoints will be excluded
 
 ---
 spring:
