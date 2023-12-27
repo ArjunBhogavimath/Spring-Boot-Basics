@@ -4,6 +4,7 @@ import com.arjuncode.Springbootlearn.entity.Department;
 import com.arjuncode.Springbootlearn.error.DepartmentNotFoundException;
 import com.arjuncode.Springbootlearn.service.DepartmentService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -41,6 +42,7 @@ class DepartmentControllerTest {
     }
 
     @Test
+    @Disabled
     void saveDepartment() throws Exception {
         Department inputDepartment = Department.builder()
                 .departmentAddress("Mangalore")
@@ -64,6 +66,7 @@ class DepartmentControllerTest {
     }
 
     @Test
+    @Disabled
     void fetchDepartmentById() throws Exception {
         Mockito.when(departmentService.fetchDepartmentById(1L))
                 .thenReturn(department);

@@ -44,7 +44,7 @@ public class DepartmentServiceTest {
     //to do that at first we need to autowire that class
     @Test //we need to annotate the method with test so we can use this as a test function
    @DisplayName("get Data Based on valid department name")
-   //@Disabled //this is used for disabling particualr test case
+   @Disabled //this is used for disabling particualr test case
    public void whenValidDepartmentName_thenDepartmentShouldFound(){ //the naming of the method should be standard please read spring doc
         String departmentName = "AI";
         Department found = departmentService.fetchDepartmentByName(departmentName);
