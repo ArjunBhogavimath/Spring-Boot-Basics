@@ -54,6 +54,13 @@ hibernate:
       platform: com.atomikos.icatch.jta.hibernate4.AtomikosPlatform
 welcome:
   message: 'Welcome!!!! Arjun '
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#this is the actuator dependency
+#by doing this it will enable all the functions
 
 ---
 spring:
